@@ -3,7 +3,7 @@
 // Please, be familiar with article first:
 // https://hackernoon.com/react-form-validation-with-formik-and-yup-8b76bda62e10
 import React from "react";
-import { Card, Modal } from "react-bootstrap";
+import { Button, Card, Jumbotron, Modal, ProgressBar,InputGroup,FormControl,Image } from "react-bootstrap";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ShopsCreshopEditDialogHeader } from "./ShopsCreshopEditDialogHeader";
@@ -13,6 +13,7 @@ import {
   Input,
   Select,
   Switch,
+  Upload,
   DatePickerField,
 } from "../../../../../../_metronic/_partials/controls";
 
@@ -47,10 +48,12 @@ export function ShopsCreshopEditForm({
   const [state, setState] = React.useState({
     active: false
   })
+  const [tempfile,setTempfiel] = React.useState('');
   const handleChange = (e, name) => {
     console.log(e.target.checked);
     setState({ ...state, [name]: e.target.checked });
   }
+  console.log(tempfile); // เอาไฟล์ไปเก็บ server
   return (
     <>
       <Formik
@@ -70,9 +73,14 @@ export function ShopsCreshopEditForm({
                 </div>
               )}
               <Form className="form form-label-right d-flex row">
-                <Card className="col-md-4 pt-3" style={{ height: "300px" }}>
-                  asdfdfsd
+                <Card className="col-md-4 pt-3 pb-3" style={{ height: "38vh" }}>   
+                  <Field
+                        name="pic"
+                        component={Upload}
+                        tempfile={setTempfiel}
+                      />  
                 </Card>
+                <> </>
                 <Card className="col-md-8" aria-labelledby="example-modal-sizes-title-lg">
                   <ShopsCreshopEditDialogHeader id={id} onHide={onHide} />
                   <div className="form-group row">

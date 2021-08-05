@@ -17,6 +17,7 @@ export {Select} from "./forms/Select";
 export {Switch} from "./forms/sit-switch";
 export {Checkbox} from "./forms/Checkbox";
 export {HeaderCheckbox} from "./forms/HeaderCheckbox";
+export {Upload} from "./forms/sit-upload";
 
 
 // Paginations
